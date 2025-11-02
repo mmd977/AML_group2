@@ -141,8 +141,9 @@ def build_imagenet():
 
 class MFCCPreprocessor:
     """
-    Waveform -> MFCC tensor with per-utterance CMVN and fixed time frames.
-    Output per sample: [1, 40, 100] (channel, mfcc, time)
+    This class Extracts MFCC features from a speech signal and outputs them in a matrix with a fixed time length 
+    (same number of frames for every sample)
+
     """
     def __init__(self, sample_rate=16000, n_mfcc=40, n_mels=64, fixed_frames=100, cmvn=True):
         self.sr = int(sample_rate)
